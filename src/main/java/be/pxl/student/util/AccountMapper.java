@@ -13,7 +13,7 @@ public class AccountMapper {
 
         Account account = new Account();
         account.setName(split[0]);
-
+        account.setIBAN(split[1]);
         return account;
     }
 }

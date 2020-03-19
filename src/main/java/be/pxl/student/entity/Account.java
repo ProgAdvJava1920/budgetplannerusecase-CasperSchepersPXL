@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Entity
-@NamedQueries(@NamedQuery(name="findByName", query = "select a from Account a where a.name = :name"))
+@NamedQueries(@NamedQuery(name="findByName", query = "SELECT a FROM Account a WHERE a.name = :name"))
 public class Account {
 
     @Id

@@ -21,9 +21,12 @@ public class BudgetPlannerFindPayments {
 
             System.out.println("Geef een naam: ");
             String name = input.nextLine();
-//            TypedQuery<Account> findByName = entityManager.createNamedQuery("findByName");
-//            findByName.setParameter("name", name);
-//            Account result = findByName.getSingleResult();
+            TypedQuery<Account> findByName = entityManager.createNamedQuery("findByName", Account.class);
+            findByName.setParameter("name", name);
+            Account result = findByName.getSingleResult();
+            System.out.println(result.getIBAN() + " by " + result.getName());
+            System.out.println("#payments: " + result.getPayments().size());
+            result.getPayments().forEach(System.out::println);
         }
         finally {
             if (entityManager != null) {
