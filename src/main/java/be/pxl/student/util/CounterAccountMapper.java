@@ -2,7 +2,7 @@ package be.pxl.student.util;
 
 import be.pxl.student.entity.Account;
 
-public class AccountMapper {
+public class CounterAccountMapper {
 
     public Account map(String validLine) throws InvalidPaymentException {
 
@@ -12,7 +12,8 @@ public class AccountMapper {
         }
 
         Account account = new Account();
-        account.setName(split[0]);
+        //account.setName(split[0]); counteraccount name is unknown
+        account.setIBAN(split[2]);
 
         return account;
     }
