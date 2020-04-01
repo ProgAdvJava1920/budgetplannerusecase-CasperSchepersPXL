@@ -51,4 +51,7 @@ public class Account {
                 ", name='" + name + '\'' +
                 ", payments=[" + payments.stream().map(Payment::toString).collect(Collectors.joining(",")) + "]}";
     }
+
+    public void addPayment(Payment payment) {
+    }
 }
