@@ -48,7 +48,7 @@ public class AccountService {
 
         Payment payment = new Payment();
         payment.setCounterAccount(counterAccount);
-        payment.setAccount(amount);
+        payment.setAmount(amount);
         payment.setCurrency("EUR");
         payment.setDate(LocalDateTime.now());
         payment.setDetail(detail);

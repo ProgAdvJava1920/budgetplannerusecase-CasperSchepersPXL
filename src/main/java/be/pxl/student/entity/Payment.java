@@ -70,7 +70,7 @@ public class Payment {
         return account;
     }
 
-    public void setAccount(float account) {
+    public void setAccount(Account account) {
         this.account = account;
     }
 

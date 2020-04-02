@@ -5,7 +5,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Entity
-@NamedQueries(@NamedQuery(name="findByName", query = "SELECT a FROM Account a WHERE a.name = :name"))
+@NamedQueries({
+        @NamedQuery(name="findByName", query = "SELECT a FROM Account a WHERE a.name = :name"),
+        @NamedQuery(name = "findByIban", query = "SELECT a FROM Account a WHERE a.IBAN = :iban")
+})
 public class Account {
 
     @Id
@@ -13,7 +16,7 @@ public class Account {
     private Long id;
     private String IBAN;
     private String name;
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.MERGE)
     private List<Payment> payments;
 
     public Long getId() {
@@ -53,5 +56,7 @@ public class Account {
     }
 
     public void addPayment(Payment payment) {
+        payment.setAccount(this);
+        payments.add(payment);
     }
 }
