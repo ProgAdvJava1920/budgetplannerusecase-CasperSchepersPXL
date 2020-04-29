@@ -27,7 +27,7 @@ public class EntityManagerUtil implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
 
-        emf = Persistence.createEntityManagerFactory("musicdb_pu");
+        emf = Persistence.createEntityManagerFactory("budgetPlanner_pu");
         LOGGER.debug("*** Persistence started at " + LocalDateTime.now());
 
     }

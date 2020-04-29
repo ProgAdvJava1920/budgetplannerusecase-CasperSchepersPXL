@@ -28,23 +28,18 @@ public class LabelsRest {
 
     @POST
     public Response addLabel(LabelCreateResource labelCreateResource) {
-        try {
-            labelService.addLabel(labelCreateResource.getName());
-            return Response.created(UriBuilder.fromPath("/labels/").build()).build();
-        } catch (DuplicateLabelException e) {
-            return Response.status(Response.Status.BAD_REQUEST).type(MediaType.TEXT_PLAIN).entity(e.getMessage()).build();
-        }
-        return Response.status(Response.Status.ACCEPTED).build();
+        labelService.addLabel(labelCreateResource.getName());
+        return Response.created(UriBuilder.fromPath("/labels/").build()).build();
     }
 
-    @DELETE
-    @Path("{id}")
-    public Response removeLabel(@PathParam("id") long labelId) {
-        try {
-            labelService.removeLabel(labelId);
-        } catch (LabelNotFoundException | LabelInUseException e) {
-            return Response.status(Response.Status.BAD_REQUEST).entity(new ErrorMessage(e)).build();
-        }
-        return Response.status(Response.Status.ACCEPTED).build();
-    }
+//    @DELETE
+//    @Path("{id}")
+//    public Response removeLabel(@PathParam("id") long labelId) {
+//        try {
+//            labelService.removeLabel(labelId);
+//        } catch (LabelNotFoundException | LabelInUseException e) {
+//            return Response.status(Response.Status.BAD_REQUEST).entity(new ErrorMessage(e)).build();
+//        }
+//        return Response.status(Response.Status.ACCEPTED).build();
+//    }
 }

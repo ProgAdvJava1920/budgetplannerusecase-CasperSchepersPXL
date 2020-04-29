@@ -52,7 +52,7 @@ public class AccountsRest {
     private PaymentResource mapPayment(Payment payment) {
         PaymentResource result = new PaymentResource();
         result.setId(payment.getId());
-        result.setAmount(payment.getAmount());
+        result.setAmount((float) payment.getAmount());
         result.setCounterAccount(payment.getCounterAccount().getIBAN());
         result.setCurrency(payment.getCurrency());
         result.setDetail(payment.getDetail());
